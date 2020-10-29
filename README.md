@@ -84,41 +84,43 @@ date.timezone = America/Chicago
 ```sh
 sudo mysql -u root -p
 ```
-##### Then create a database called icehrm
+###### Then create a database called icehrm
 
-##### CREATE DATABASE icehrm;
+###### CREATE DATABASE icehrm;
 
-##### Create a database user called icehrmuser with new password
+###### Create a database user called icehrmuser with new password
 
-##### CREATE USER 'icehrmuser'@'localhost' IDENTIFIED BY 'new_password_here';
+###### CREATE USER 'icehrmuser'@'localhost' IDENTIFIED BY 'new_password_here';
 
-##### Then grant the user full access to the database.
+###### Then grant the user full access to the database.
 
-##### GRANT ALL ON icehrm.* TO 'icehrmuser'@'localhost' IDENTIFIED BY 'user_password_here' WITH GRANT OPTION;
+###### GRANT ALL ON icehrm.* TO 'icehrmuser'@'localhost' IDENTIFIED BY 'user_password_here' WITH GRANT OPTION;
 
-##### Finally, save your changes and exit.
+###### Finally, save your changes and exit.
 
-FLUSH PRIVILEGES;
-EXIT;
-Step 5: Download ICE HRM Latest Release
-Next, visit ICE HRM site and download the latest version.
+###### FLUSH PRIVILEGES;
+###### EXIT;
+###### Step 5: Download ICE HRM Latest Release
+###### Next, visit ICE HRM site and download the latest version.
 
-After downloading, run the commands below to extract the download file into Apache2 root directory.
+###### After downloading, run the commands below to extract the download file into Apache2 root directory.
 
-cd /tmp && wget https://github.com/gamonoid/icehrm/releases/download/v23.0.0.OS/icehrm_v23.0.0.OS.zip
-unzip icehrm_v23.0.0.OS.zip
-sudo mv icehrm_v23.0.0.OS /var/www/html/icehrm
-Then run the commands below to set the correct permissions for Concrete5 to function.
+###### cd /tmp && wget https://github.com/gamonoid/icehrm/releases/download/v23.0.0.OS/icehrm_v23.0.0.OS.zip
+###### unzip icehrm_v23.0.0.OS.zip
+###### sudo mv icehrm_v23.0.0.OS /var/www/html/icehrm
+###### Then run the commands below to set the correct permissions for Concrete5 to function.
 
+```sh
 sudo chown -R www-data:www-data /var/www/html/icehrm/
 sudo chmod -R 755 /var/www/html/icehrm/
-Step 6: Configure Apache2
-Finally, configure Apahce2 site configuration file for ICE HRM. This file will control how users access ICE HRM content. Run the commands below to create a new configuration file called icehrm.conf
-
+```
+#### Step 6: Configure Apache2
+###### Finally, configure Apahce2 site configuration file for ICE HRM. This file will control how users access ICE HRM content. Run the commands below to create a new configuration file called icehrm.conf
+```sh
 sudo nano /etc/apache2/sites-available/icehrm.conf
-
-Then copy and paste the content below into the file and save it. Replace the highlighted line with your own domain name and directory root location.
-
+```
+###### Then copy and paste the content below into the file and save it. Replace the highlighted line with your own domain name and directory root location.
+```sh
 <VirtualHost *:80>
      ServerAdmin admin@example.com
      DocumentRoot /var/www/html/icehrm
@@ -133,21 +135,21 @@ Then copy and paste the content below into the file and save it. Replace the hig
 
      ErrorLog ${APACHE_LOG_DIR}/error.log
      CustomLog ${APACHE_LOG_DIR}/access.log combined
-
+```
+```sh
 </VirtualHost>
-Save the file and exit.
+```
+###### Save the file and exit.
 
-Step 7: Enable the ICE HRM
-After configuring the VirtualHost above, enable it by running the commands below
-
+#### Step 7: Enable the ICE HRM
+###### After configuring the VirtualHost above, enable it by running the commands below
+```sh
 sudo a2ensite icehrm.conf
 sudo a2enmod rewrite
-Step 8 : Restart Apache2
-To load all the settings above, restart Apache2 by running the commands below.
-
+```
+#### Step 8 : Restart Apache2
+###### To load all the settings above, restart Apache2 by running the commands below.
+```sh
 sudo systemctl restart apache2.service
-
-Then open your browser and browse to the server domain name followed by install. You should see Concrete5 setup wizard to complete. Please follow the wizard carefully.
-
-http://example.com
-Then follow the on-screen instruction and type in the database connection info you created above… then click Install Application…
+```
+###### Then open your browser and browse to the server domain name followed by install. You should see Concrete5 setup wizard to complete. Please follow the wizard carefully.
