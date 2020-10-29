@@ -85,29 +85,31 @@ date.timezone = America/Chicago
 sudo mysql -u root -p
 ```
 ###### Then create a database called icehrm
-
-###### CREATE DATABASE icehrm;
-
+```sh
+CREATE DATABASE icehrm;
+```
 ###### Create a database user called icehrmuser with new password
-
-###### CREATE USER 'icehrmuser'@'localhost' IDENTIFIED BY 'new_password_here';
-
+```sh
+CREATE USER 'icehrmuser'@'localhost' IDENTIFIED BY 'new_password_here';
+```
 ###### Then grant the user full access to the database.
-
-###### GRANT ALL ON icehrm.* TO 'icehrmuser'@'localhost' IDENTIFIED BY 'user_password_here' WITH GRANT OPTION;
-
+```sh
+GRANT ALL ON icehrm.* TO 'icehrmuser'@'localhost' IDENTIFIED BY 'user_password_here' WITH GRANT OPTION;
+```
 ###### Finally, save your changes and exit.
-
-###### FLUSH PRIVILEGES;
-###### EXIT;
+```sh
+FLUSH PRIVILEGES;
+EXIT;
+```
 ###### Step 5: Download ICE HRM Latest Release
 ###### Next, visit ICE HRM site and download the latest version.
 
 ###### After downloading, run the commands below to extract the download file into Apache2 root directory.
-
-###### cd /tmp && wget https://github.com/gamonoid/icehrm/releases/download/v23.0.0.OS/icehrm_v23.0.0.OS.zip
-###### unzip icehrm_v23.0.0.OS.zip
-###### sudo mv icehrm_v23.0.0.OS /var/www/html/icehrm
+```sh
+cd /tmp && wget https://github.com/gamonoid/icehrm/releases/download/v23.0.0.OS/icehrm_v23.0.0.OS.zip
+unzip icehrm_v23.0.0.OS.zip
+sudo mv icehrm_v23.0.0.OS /var/www/html/icehrm
+```
 ###### Then run the commands below to set the correct permissions for Concrete5 to function.
 
 ```sh
