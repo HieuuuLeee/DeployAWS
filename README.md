@@ -153,3 +153,25 @@ sudo a2enmod rewrite
 sudo systemctl restart apache2.service
 ```
 ###### Then open your browser and browse to the server domain name followed by install. You should see Concrete5 setup wizard to complete. Please follow the wizard carefully.
+
+### Connect To MySQL Database From Command Line
+###### To connect to MySQL from the command line, follow these steps:
+
+###### Log in to your A2 Hosting account using SSH.
+###### At the command line, type the following command, replacing USERNAME with your username:
+```sh
+mysql -u USERNAME -p
+```
+###### At the Enter Password prompt, type your password. When you type the correct password, the mysql> prompt appears.
+###### To display a list of databases, type the following command at the mysql> prompt:
+```sh
+show databases;
+```
+###### To access a specific database, type the following command at the mysql> prompt, replacing DBNAME with the database that you want to access:
+```sh
+use DBNAME;
+```
+###### After you access a database, you can run SQL queries, list tables, and so on. Additionally:
+
+###### To view a list of MySQL commands, type help at the mysql> prompt.
+###### To exit the mysql program, type \q at the mysql> prompt.
